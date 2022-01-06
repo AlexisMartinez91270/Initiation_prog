@@ -10,13 +10,16 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int a, b;
-            Console.WriteLine("donnez deux nombres");
-            a = (int.Parse(Console.ReadLine()));
-            Console.WriteLine("donnez deux nombres");
-            b = (int.Parse(Console.ReadLine()));
-            Console.WriteLine("Leur somme est " + (a + b));
-            Console.WriteLine("Leur produit est " + a * b);
+            double prix, articles, tva;
+            Console.WriteLine("prix unitaire HT :");
+            prix = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("nombres articles :");
+            articles = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("taux TVA :");
+            tva = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("prix total HT: " + (prix * articles));
+            Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
+
         }
     }
 }

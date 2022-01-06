@@ -1,4 +1,5 @@
-let a = parseInt(prompt("donner deux nombres"));
-let b = parseInt(prompt("donner deux nombres"));
-console.log(`leur somme est ${a + b}`);
-console.log(`leur produit est ${a * b}`);
+let prix = prompt("prix unitaire HT");
+let articles = prompt("nombres articles");
+let tva = prompt("taux TVA");
+console.log(`prix total HT : ${prix * articles}`);
+console.log(`prix total TTC : ${prix * articles * (1 + tva * 0.01)}`);
