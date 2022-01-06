@@ -1,13 +1,7 @@
-//a)
-let n1 = 5;
-let n2 = 7;
-n1 = n2;
-n2 = n1;
-// n1 = 7 ; n2 = 7
-
-//b)
-n1 = 5;
-n2 = 7;
-n2 = n1;
-n1 = n2;
-// n1 = 5 ; n2 = 5
+let a = 1;
+let b = 2;
+let c = 3;
+let d = a;
+a = b;
+b = c;
+c = d;
