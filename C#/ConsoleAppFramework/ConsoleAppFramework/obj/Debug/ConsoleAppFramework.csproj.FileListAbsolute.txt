@@ -1,0 +1,8 @@
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\bin\Debug\ConsoleAppFramework.exe.config
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\bin\Debug\ConsoleAppFramework.exe
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\bin\Debug\ConsoleAppFramework.pdb
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\obj\Debug\ConsoleAppFramework.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\obj\Debug\ConsoleAppFramework.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\obj\Debug\ConsoleAppFramework.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\obj\Debug\ConsoleAppFramework.exe
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\ConsoleAppFramework\ConsoleAppFramework\obj\Debug\ConsoleAppFramework.pdb
