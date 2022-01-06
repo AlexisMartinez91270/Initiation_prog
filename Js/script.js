@@ -1,10 +1,17 @@
-let a, b, c;
-//crée les réels a, b et c
-a = 5.25;
-//affecte la valeur 5.25 dans la case mémoire de a
-b = 2.0 * a;
-//affecte la valeur de la multiplication de 2.0*a dans la case mémoire de b
-c = 1.5;
-//affecte la valeur 1.5 dans la case mémoire de c
-b = 5 * c;
-//affecte la valeur de la multiplication de 5.*c dans la case mémoire de b
+let n, p;
+let x;
+
+n = 10;
+p = 7;
+x = 2.5;
+
+x + n / p;
+//réel
+(x + n) / p;
+//réel
+5.0 * n;
+//réel
+(n + 1) / n;
+//entier
+(n + 1.0) / n;
+//réel
