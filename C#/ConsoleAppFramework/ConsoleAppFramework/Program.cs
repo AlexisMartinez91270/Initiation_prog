@@ -10,23 +10,13 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int n, p;
-            double x;
+            char a, b, c;
 
-            n = 10;
-            p = 7;
-            x = 2.5;
-
-            Console.WriteLine(x + n / p);
-            //réel
-            Console.WriteLine((x + n) / p);
-            //réel
-            Console.WriteLine(5.0 * n);
-            //réel
-            Console.WriteLine((n + 1) / n);
-            //entier
-            Console.WriteLine((n + 1.0) / n);
-            //réel
+            a = 'x';
+            b = 'y';
+            c = a;
+            a = b;
+            b = c;
         }
     }
 }
