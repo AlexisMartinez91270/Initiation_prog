@@ -1,7 +1,5 @@
-let a, b, c;
-
-a = "x";
-b = "y";
-c = a;
-a = b;
-b = c;
+let a = 3,
+  b = 5;
+console.log(`a = ${a}, b = ${b}`);
+console.log(`a*b = ${a * b}`);
+console.log(`a + b = ${a + b}`);

@@ -10,13 +10,10 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            char a, b, c;
-
-            a = 'x';
-            b = 'y';
-            c = a;
-            a = b;
-            b = c;
+            int a = 3, b = 5;
+            Console.WriteLine("a = " + a + ", b = " + b);
+            Console.WriteLine("a*b = " + a*b);
+            Console.WriteLine("a+b = " + (a+b));
         }
     }
 }
