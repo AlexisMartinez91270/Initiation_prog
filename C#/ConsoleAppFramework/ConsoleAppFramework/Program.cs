@@ -10,20 +10,14 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int n = 8;
-            int p = 13;
-            int q = 29;
-
-            Console.WriteLine(n + p / q);
-            // 8
-            Console.WriteLine(n + q / p);
-            // 10
-            Console.WriteLine((n + q) / p);
-            // 2
-            Console.WriteLine(n + p / n + p);
-            // 22
-            Console.WriteLine((n + p) / (n + p));
-            // 1
+            int n, p, q;
+            //crée les entiers n, p et q
+            n = 5;
+            //affecte la valeur 5 dans la case mémoire de n
+            p = 5;
+            //affecte la valeur 5 dans la case mémoire de p
+            q = n / (n - p);
+            //affecte la valeur de la division de la valeur de n par la valeur de la soustraction de n-p dans la case mémoire de p
         }
     }
 }
