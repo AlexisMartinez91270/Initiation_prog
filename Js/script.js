@@ -1,5 +1,4 @@
-let a = 3,
-  b = 5;
-console.log(`a = ${a}, b = ${b}`);
-console.log(`a*b = ${a * b}`);
-console.log(`a + b = ${a + b}`);
+let a = parseInt(prompt("donner deux nombres"));
+let b = parseInt(prompt("donner deux nombres"));
+console.log(`leur somme est ${a + b}`);
+console.log(`leur produit est ${a * b}`);
