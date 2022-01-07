@@ -5,6 +5,11 @@
       "ProjectGuid": "8a42acd3-bdfc-498e-8994-ec57e592d2a6",
       "DisplayName": "ConsoleAppFramework",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1
