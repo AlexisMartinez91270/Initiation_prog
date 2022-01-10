@@ -11,14 +11,14 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
         {
             float montant;
-            float tauxRemise = 0f;
+            float tauxRemise = 0;
             Console.WriteLine("Saisir un montant");
             montant = float.Parse(Console.ReadLine());
             if (montant > 2000)
             {
                 tauxRemise = 1f;
                 montant *= 1f - tauxRemise / 100f;
-            }
+            } 
             Console.WriteLine(montant);
         }
     }
