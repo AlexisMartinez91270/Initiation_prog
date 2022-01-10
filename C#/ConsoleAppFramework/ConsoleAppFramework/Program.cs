@@ -10,27 +10,38 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            float montant;
-            float montantTTC;
-            float tauxRemise = 0;
-            Console.WriteLine("Saisir un montant");
-            montant = float.Parse(Console.ReadLine());
-            montantTTC = montant * 1.196f;
-            if ((montantTTC >= 1000f) & (montantTTC < 2000f))
-            {
-                tauxRemise = 1f;
-            }
-            else if ((montantTTC >= 2000f) & (montantTTC < 5000f))
-            {
-                tauxRemise = 2f;
-            }
-            else if (montantTTC >= 5000)
-            {
-                tauxRemise = 5f;
-            }
+            int jours;
+            int mois;
+            Console.WriteLine("Saisir un numéro de mois");
+            mois = int.Parse(Console.ReadLine());
 
-            montantTTC *= 1f - tauxRemise / 100f;
-            Console.WriteLine(montantTTC);
+            if (mois == 2)
+            {
+                jours = 28;
+            }
+            else if (mois <= 7)
+            {
+                if (mois % 2 == 1)
+                {
+                    jours = 31;
+                }
+                else
+                {
+                    jours = 30;
+                }
+            }
+            else
+            {
+                if (mois % 2 == 0)
+                {
+                    jours = 31;
+                }
+                else
+                {
+                    jours = 30;
+                }
+            }
+            Console.WriteLine(jours);
         }
     }
 }

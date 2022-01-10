@@ -1,15 +1,19 @@
-let montant;
-let montantTTC;
-let tauxRemise = 0;
-montant = prompt("Saisir un montant");
-montantTTC = montant * 1.196;
-if (montantTTC >= 1000 && montantTTC < 2000) {
-  tauxRemise = 1;
-} else if (montantTTC >= 2000 && montantTTC < 5000) {
-  tauxRemise = 2;
-} else if (montantTTC >= 5000) {
-  tauxRemise = 5;
+let jours;
+let mois;
+mois = prompt("Saisir le numéro d'un mois");
+if (mois == 2) {
+  jours = 28;
+} else if (mois <= 7) {
+  if (mois % 2 == 1) {
+    jours = 31;
+  } else {
+    jours = 30;
+  }
+} else {
+  if (mois % 2 == 0) {
+    jours = 31;
+  } else {
+    jours = 30;
+  }
 }
-
-montantTTC *= 1 - tauxRemise / 100;
-alert(montantTTC);
+alert(jours);
