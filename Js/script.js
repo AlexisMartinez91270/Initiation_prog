@@ -1,9 +1,8 @@
-let a = 5;
-let b = 8;
-let c = 4;
-
-if (a < b && b < c) {
-  alert("Ordre croissant");
-} else {
-  alert("Pas ordre croissant");
+let montant;
+let tauxRemise = 0.0;
+montant = prompt("Saisir un montant");
+if (montant > 2000) {
+  tauxRemise = 1.0;
+  montant *= 1.0 - tauxRemise / 100.0;
 }
+console.log(montant);

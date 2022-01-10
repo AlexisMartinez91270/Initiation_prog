@@ -10,18 +10,16 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int a = 5;
-            int b = 8;
-            int c = 4;
-
-            if ((a < b) & (b < c))
+            float montant;
+            float tauxRemise = 0f;
+            Console.WriteLine("Saisir un montant");
+            montant = float.Parse(Console.ReadLine());
+            if (montant > 2000)
             {
-                Console.WriteLine("Ordre croissant");
+                tauxRemise = 1f;
+                montant *= 1f - tauxRemise / 100f;
             }
-            else
-            {
-                Console.WriteLine("Pas ordre croissant");
-            }
+            Console.WriteLine(montant);
         }
     }
 }
