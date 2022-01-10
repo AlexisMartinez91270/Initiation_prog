@@ -12,16 +12,15 @@ namespace ConsoleAppFramework
         {
             int a = 5;
             int b = 8;
+            int c = 4;
 
-            if (a < b)
+            if ((a < b) & (b < c))
             {
                 Console.WriteLine("Ordre croissant");
-                Console.WriteLine(b - a);
             }
             else
             {
-                Console.WriteLine("Ordre décroissant");
-                Console.WriteLine(a - b);
+                Console.WriteLine("Pas ordre croissant");
             }
         }
     }

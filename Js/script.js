@@ -1,10 +1,9 @@
 let a = 5;
 let b = 8;
+let c = 4;
 
-if (a < b) {
+if (a < b && b < c) {
   alert("Ordre croissant");
-  alert(b - a);
 } else {
-  alert("Ordre décroissant");
-  alert(a - b);
+  alert("Pas ordre croissant");
 }
