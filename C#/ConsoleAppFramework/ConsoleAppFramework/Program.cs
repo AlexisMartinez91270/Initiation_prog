@@ -10,12 +10,19 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int n;
+            int n = 1;
+            Console.WriteLine("Saisir un nombre positif et inférieur à 100");
             do
             {
-                Console.WriteLine("Saisir un nombre positif et inférieur à 100");
+                if (n <= 0)
+                {
+                    Console.WriteLine("SVP positif");
+                }
+                else if (n >= 100)
+                {
+                    Console.WriteLine("SVP inférieur à 100");
+                }
                 n = int.Parse(Console.ReadLine());
-                Console.WriteLine(n);
             } while (n < 0 | n > 100);
             Console.WriteLine("merci pour le nombre " + n);
 
