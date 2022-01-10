@@ -10,29 +10,19 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            testEstConvertible();
-            /*
-                        double eu_invalide = 0;
-                        bool strict = true;
-                        double prix = 0, articles = 0, tva = 0;
+            /*TestCalcul();*/
+            double prix = 0, articles = 0, tva = 0;
 
-                        do
-                        {
-                            eu_invalide = Convertit("Prix unitaire HT :", ref prix, strict);
-                        } while (eu_invalide == -1);
-                        do
-                        {
-                            eu_invalide = Convertit("Nombres articles :", ref articles, strict);
-                        } while (eu_invalide == -1);
-                        do
-                        {
-                            eu_invalide = Convertit("Taux TVA :", ref tva, !strict);
-                        } while (eu_invalide == -1);
+            prix = DoubleBiggerThan0("Prix unitaire HT :", true);
 
-                        Console.WriteLine("prix total HT: " + (prix * articles));
-                        Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
-            */
-            Console.ReadLine();
+            articles = DoubleBiggerThan0("Nombres articles :", true);
+
+            tva = DoubleBiggerThan0("Taux TVA :", false);
+
+            Console.WriteLine("prix total HT: " + (prix * articles));
+            Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
+
+            /*            Console.ReadLine();*/
         }
 
 
@@ -46,7 +36,7 @@ namespace ConsoleAppFramework
         /// <returns></returns>
         static double ConvertitEnDouble(string txt)
         {
-            Console.WriteLine(txt);
+            Console.WriteLine("{0,-20} {1,90}", txt, "taper 'quit' pour sortir");
             string eu = Console.ReadLine();
 
             double d;
@@ -54,8 +44,12 @@ namespace ConsoleAppFramework
             {
                 d = Convert.ToDouble(eu);
             }
-            catch (Exception e)
+            catch (Exception)
             {
+                if (eu == "quit")
+                {
+                    Environment.Exit(0);
+                }
                 Console.WriteLine("Vous n'avez pas saisie un nombre");
                 return -1;
             }
@@ -64,6 +58,12 @@ namespace ConsoleAppFramework
             return convert_numb;
         }
 
+        /// <summary>
+        /// Test si l'entrée utilisateur peut etre convertit en double ou pas
+        /// </summary>
+        /// <param name="s">la chaîne à convertire, par ex "1.0" ou "-1e10" </param>
+        /// <param name="resultat">Stockage du résultat de la convertion </param>
+        /// <returns></returns>
         static bool EstConvertible(string s, ref double resultat)
         {
             double d;
@@ -71,7 +71,7 @@ namespace ConsoleAppFramework
             {
                 d = Convert.ToDouble(s);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -86,11 +86,32 @@ namespace ConsoleAppFramework
         /// <param name="n"></param>
         /// <param name="strict">if strict est false, renvoie également true si le nombre est coonsidéré comme 0</param>
         /// <returns>true si n est considéré positif (ou nul, avec l'option strict à false)</returns>
-        static bool IsBiggerThan0(float n, bool strict)
+        static bool IsBiggerThan0(double n, bool strict)
         {
             if (strict) return n >= float.Epsilon;
             if (Math.Abs(n) < float.Epsilon) return true;
             return IsBiggerThan0(n, true);
+        }
+
+        static double DoubleBiggerThan0(string txt, bool strict)
+        {
+            double n;
+            bool strict_true;
+            do
+            {
+                n = ConvertitEnDouble(txt);
+                strict_true = !IsBiggerThan0(n, strict);
+                if (strict_true & strict == true)
+                {
+                    Console.WriteLine("Veuillez sélectionner un nombre supérieur à 0");
+                }
+                if (strict_true & strict == false)
+                {
+                    Console.WriteLine("Veuillez sélectionner un nombre supérieur ou égale à 0");
+                }
+            } while (n <= -float.Epsilon & strict_true);
+
+            return n;
         }
 
         static void testEstConvertible()
@@ -128,5 +149,22 @@ namespace ConsoleAppFramework
 
         }
 
+        static void TestDoubleBiggerThan0()
+        {
+            string[] testValues = { "1,2", "1", "sska", "1.9", "0", "-1" };
+            Console.WriteLine("départ test:");
+            Console.WriteLine(" Valeur à tester - Résultat mode strict - Résultat mode non-strict");
+            Console.WriteLine(" -----------------------------------------------------------------");
+            for (int i = 0; i < testValues.Length; i++)
+            {
+                Console.WriteLine(" Valeur: {0,16}    - Résultat strict: {1} - Résultat non-strict {2}",
+                    testValues[i],
+                    DoubleBiggerThan0(testValues[i], true),
+                    DoubleBiggerThan0(testValues[i], false)
+                    );
+            }
+            Console.WriteLine("fin test\n");
+
+        }
     }
 }
