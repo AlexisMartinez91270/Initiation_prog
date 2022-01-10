@@ -10,19 +10,18 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            /*TestCalcul();*/
             double prix = 0, articles = 0, tva = 0;
 
-            prix = DoubleBiggerThan0("Prix unitaire HT :", true);
+            prix = DemandeBiggerThan0("Prix unitaire HT :", true);
 
-            articles = DoubleBiggerThan0("Nombres articles :", true);
+            articles = DemandeBiggerThan0("Nombres articles :", true);
 
-            tva = DoubleBiggerThan0("Taux TVA :", false);
+            tva = DemandeBiggerThan0("Taux TVA :", false);
 
             Console.WriteLine("prix total HT: " + (prix * articles));
             Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
 
-            /*            Console.ReadLine();*/
+            /*Console.ReadLine();*/
         }
 
 
@@ -34,11 +33,8 @@ namespace ConsoleAppFramework
         /// <param name="txt">la chaîne à convertire, par ex "1.0" ou "-1e10" </param>
         /// <param name="strict"></param>
         /// <returns></returns>
-        static double ConvertitEnDouble(string txt)
+        static double ConvertitEnDouble(string eu)
         {
-            Console.WriteLine("{0,-20} {1,90}", txt, "taper 'quit' pour sortir");
-            string eu = Console.ReadLine();
-
             double d;
             try
             {
@@ -46,16 +42,11 @@ namespace ConsoleAppFramework
             }
             catch (Exception)
             {
-                if (eu == "quit")
-                {
-                    Environment.Exit(0);
-                }
                 Console.WriteLine("Vous n'avez pas saisie un nombre");
                 return -1;
             }
-            double convert_numb = d;
 
-            return convert_numb;
+            return d;
         }
 
         /// <summary>
@@ -93,23 +84,28 @@ namespace ConsoleAppFramework
             return IsBiggerThan0(n, true);
         }
 
-        static double DoubleBiggerThan0(string txt, bool strict)
+        static double DemandeBiggerThan0(string txt, bool strict)
         {
             double n;
-            bool strict_true;
+            double mini = strict ? double.Epsilon : 0;
             do
             {
-                n = ConvertitEnDouble(txt);
-                strict_true = !IsBiggerThan0(n, strict);
-                if (strict_true & strict == true)
+                Console.WriteLine("{0,-20} {1,90}", txt, "taper 'quit' pour sortir");
+                string eu = Console.ReadLine();
+
+                if (eu.ToLower() == "quit")
                 {
-                    Console.WriteLine("Veuillez sélectionner un nombre supérieur à 0");
+                    Environment.Exit(0);
                 }
-                if (strict_true & strict == false)
-                {
-                    Console.WriteLine("Veuillez sélectionner un nombre supérieur ou égale à 0");
+
+                n = ConvertitEnDouble(eu);
+
+                if (n < mini)
+                { string ou_egal = "";
+                    if (!strict) ou_egal = " ou égal";
+                    Console.WriteLine("Veuillez saisir un nombre supérieur" + ou_egal + " à zéro");
                 }
-            } while (n <= -float.Epsilon & strict_true);
+            } while (n < mini);
 
             return n;
         }
@@ -159,8 +155,8 @@ namespace ConsoleAppFramework
             {
                 Console.WriteLine(" Valeur: {0,16}    - Résultat strict: {1} - Résultat non-strict {2}",
                     testValues[i],
-                    DoubleBiggerThan0(testValues[i], true),
-                    DoubleBiggerThan0(testValues[i], false)
+                    DemandeBiggerThan0(testValues[i], true),
+                    DemandeBiggerThan0(testValues[i], false)
                     );
             }
             Console.WriteLine("fin test\n");
