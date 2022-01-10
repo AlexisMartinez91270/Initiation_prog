@@ -16,10 +16,12 @@ namespace ConsoleAppFramework
             if (a < b)
             {
                 Console.WriteLine("Ordre croissant");
+                Console.WriteLine(b - a);
             }
             else
             {
                 Console.WriteLine("Ordre décroissant");
+                Console.WriteLine(a - b);
             }
         }
     }
