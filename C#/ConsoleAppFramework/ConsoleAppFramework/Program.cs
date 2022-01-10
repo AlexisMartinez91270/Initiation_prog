@@ -10,38 +10,15 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int jours;
-            int mois;
-            Console.WriteLine("Saisir un numéro de mois");
-            mois = int.Parse(Console.ReadLine());
+            int n;
+            do
+            {
+                Console.WriteLine("Saisir un nombre positif et inférieur à 100");
+                n = int.Parse(Console.ReadLine());
+                Console.WriteLine(n);
+            } while (n < 0 | n > 100);
+            Console.WriteLine("merci pour le nombre " + n);
 
-            if (mois == 2)
-            {
-                jours = 28;
-            }
-            else if (mois <= 7)
-            {
-                if (mois % 2 == 1)
-                {
-                    jours = 31;
-                }
-                else
-                {
-                    jours = 30;
-                }
-            }
-            else
-            {
-                if (mois % 2 == 0)
-                {
-                    jours = 31;
-                }
-                else
-                {
-                    jours = 30;
-                }
-            }
-            Console.WriteLine(jours);
         }
     }
 }
