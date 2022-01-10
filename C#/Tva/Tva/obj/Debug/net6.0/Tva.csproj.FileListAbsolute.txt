@@ -1,0 +1,15 @@
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\bin\Debug\net6.0\Tva.exe
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\bin\Debug\net6.0\Tva.deps.json
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\bin\Debug\net6.0\Tva.runtimeconfig.json
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\bin\Debug\net6.0\Tva.dll
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\bin\Debug\net6.0\ref\Tva.dll
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\bin\Debug\net6.0\Tva.pdb
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.AssemblyInfoInputs.cache
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.AssemblyInfo.cs
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.dll
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\ref\Tva.dll
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.pdb
+C:\Users\User\Documents\Serial_labs\Initation_prog\C#\Tva\Tva\obj\Debug\net6.0\Tva.genruntimeconfig.cache
