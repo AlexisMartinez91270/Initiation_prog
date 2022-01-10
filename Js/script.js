@@ -1,5 +1,5 @@
 let montant;
-let tauxRemise = 0.0;
+let tauxRemise = 0;
 montant = prompt("Saisir un montant");
 if (montant > 2000) {
   tauxRemise = 1.0;
