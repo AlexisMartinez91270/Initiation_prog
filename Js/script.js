@@ -1,16 +1,13 @@
-let jours;
-let mois;
+let capIni, cap, taux;
+
+capIni = prompt("donnez le capital à placer : ");
+taux = prompt("donnez le taux : ");
+
+cap = capIni;
+let i = 0;
 
 do {
-  mois = prompt("Saisir un numéro de mois");
-
-  mois = Math.abs(mois - 7.5) - 0.5;
-
-  if (mois > 6) {
-    alert("Entre 1 & 12");
-  } else {
-    jours = mois % 2 == 0 ? 31 : mois == 5 ? 28 : 30;
-  }
-} while (mois > 6);
-
-alert(jours);
+  cap = cap * (1 + taux / 100);
+  i++;
+  console.log(`capital, à l'année ${i} : ${cap}`);
+} while (cap <= 2 * capIni);

@@ -10,26 +10,21 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int jours = 0;
-            float mois;
-            Console.WriteLine("Saisir un numéro de mois");
+            float capIni, cap, taux;            
 
+            Console.WriteLine("donnez le capital à placer et le taux : ");
+            capIni = float.Parse(Console.ReadLine());
+            taux = float.Parse(Console.ReadLine());
+
+            cap = capIni;
+            int i = 0;
 
             do
             {
-                mois = float.Parse(Console.ReadLine());
-                mois = Math.Abs(mois - 7.5f) - 0.5f;
-
-                if(mois > 6)
-                {
-                    Console.WriteLine("Entre 1 & 12");
-                }
-                else
-                {
-                    jours = (mois % 2 == 0) ? 31 : ((mois == 5) ? 28 : 30);
-                }                  
-            } while (mois > 6);
-            Console.WriteLine(jours);
+                cap = cap * (1 + taux / 100);                
+                i ++;
+                Console.WriteLine("capital, à l'année " + i + " : " + cap);
+            }while(cap <= 2 * capIni);
         }
     }
 }
