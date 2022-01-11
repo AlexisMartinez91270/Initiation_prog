@@ -10,22 +10,20 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int[] array1 = new int[] { 2, 5, 3, 10, 4, 2 };
-            int i, j;
-            for (i = 1; i <= 6; i++)
+            int[] array1 = new int[8];
+            int i;
+
+            array1[0] = 1;
+            array1[1] = 1;
+
+            for (i = 2; i < array1.Length; i++)
             {
-                Console.WriteLine(array1[i - 1]);
-                array1[i-1] *= array1[i - 1];                
+                array1[i] = array1[i-1] + array1[i - 2];               
             }
 
-            for (j = 1; j <= 3; j++)
+            for (i = 0; i < array1.Length; i++)
             {
-                Console.WriteLine(array1[j - 1]);
-            }
-
-            for (j = 4; j <=6; j++)
-            {
-                Console.WriteLine((array1[j - 1]) * 2);
+                Console.WriteLine(array1[i]);
             }
         }
     }
