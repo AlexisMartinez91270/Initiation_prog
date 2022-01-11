@@ -10,21 +10,29 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int[] notes = new int [] {4, 18, 20, 9, 15, 3, 7, 17, 12, 13, 1, 16, 14, 8, 9 ,10, 13, 9, 5, 18};
-            int i, n, nSup10 = 0;
-            float percent;
+            int n, sommeNeg = 0, sommePos = 0, iNeg = 0, iPos = 0;
+            float moyNeg, moyPos;
 
 
-            for (i = 0; i < notes.Length; i++)
+            do
             {
-                n = notes[i];
-                if (n > 10)
+                Console.WriteLine("Rentrer un nombre / ou rentrer 0 pour arrêter");
+                n = int.Parse(Console.ReadLine());
+                if (n < 0)
                 {
-                    nSup10++;
+                    iNeg++;
+                    sommeNeg += n;
                 }
-            }
-            percent = (nSup10 * 100 )/i;
-            Console.WriteLine(percent);
+                else if (n > 0)
+                {
+                    iPos++;
+                    sommePos += n;
+                }
+            }while (n != 0);
+            moyNeg = sommeNeg/iNeg;
+            moyPos = sommePos/ iPos;
+            Console.WriteLine(moyNeg);
+            Console.WriteLine(moyPos);  
         }
     }
 }
