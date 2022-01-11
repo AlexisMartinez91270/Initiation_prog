@@ -1,7 +1,6 @@
-let s = "Bonjour je m'appelle Alexis.";
-let i = 0;
-
-for (i = 0; i < s.length; ++i) {
-  console.log("" + s[i]);
+let n = 7;
+let carr;
+for (let i = 0; i < 20 - (7 - 1); i++) {
+  carr = (n + i) * (n + i);
+  console.log(carr);
 }
-alert(i - 1);

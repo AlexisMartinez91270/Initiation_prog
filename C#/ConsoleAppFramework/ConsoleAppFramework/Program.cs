@@ -10,14 +10,13 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            string s = "Bonjour je m'appelle Alexis.";            
-            int i = 0;
-
-            for (i = 0; i < s.Length; ++i)
+            int n = 7;
+            int carr;
+            for (int i = 0; i < 20-(7-1); i++)
             {
-                Console.WriteLine("" + s[i]);
-            }
-            Console.WriteLine(i - 1);   
+                carr = (n+i)* (n + i);
+                Console.WriteLine(carr);
+            }          
         }
     }
 }
