@@ -1,9 +1,6 @@
-let n;
-
-for (let i = 1; i <= 9; i++) {
-  console.log("table de " + i + " ---------------------------------");
-  for (let j = 1; j <= 10; j++) {
-    n = i * j;
-    console.log(n);
-  }
+let array1 = new Array(5);
+let i;
+for (i = 1; i <= array1.Length; i++) {
+  array1[i - 1] = i * i;
+  console.log(array1[i - 1]);
 }

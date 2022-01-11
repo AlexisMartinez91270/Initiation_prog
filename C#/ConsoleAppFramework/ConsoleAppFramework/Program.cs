@@ -10,16 +10,12 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int n;
-
-            for (int i = 1; i <= 9; i++)
+            int[] array1 = new int[5];
+            int i;
+            for (i = 1; i <= array1.Length; i++)
             {
-                Console.WriteLine("table de "+ i + " ---------------------------------");
-                for (int j = 1; j <= 10; j++)
-                {
-                    n = i * j;
-                    Console.WriteLine(n);
-                }
+                array1[i-1] = i * i;
+                Console.WriteLine(array1[i-1]);
             }
         }
     }
