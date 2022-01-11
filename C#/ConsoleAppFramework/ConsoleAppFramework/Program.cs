@@ -10,13 +10,21 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int n = 7;
-            int carr;
-            for (int i = 0; i < 20-(7-1); i++)
+            int[] notes = new int [] {4, 18, 20, 9, 15, 3, 7, 17, 12, 13, 1, 16, 14, 8, 9 ,10, 13, 9, 5, 18};
+            int i, n, nSup10 = 0;
+            float percent;
+
+
+            for (i = 0; i < notes.Length; i++)
             {
-                carr = (n+i)* (n + i);
-                Console.WriteLine(carr);
-            }          
+                n = notes[i];
+                if (n > 10)
+                {
+                    nSup10++;
+                }
+            }
+            percent = (nSup10 * 100 )/i;
+            Console.WriteLine(percent);
         }
     }
 }
