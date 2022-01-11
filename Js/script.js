@@ -1,10 +1,16 @@
-let n = 1;
-n = prompt("Saisir un nombre positif et inférieur à 100");
+let jours;
+let mois;
+
 do {
-  if (n <= 0) {
-    n = prompt("SVP positif");
-  } else if (n >= 100) {
-    n = prompt("SVP inférieur à 100 ");
+  mois = prompt("Saisir un numéro de mois");
+
+  mois = Math.abs(mois - 7.5) - 0.5;
+
+  if (mois > 6) {
+    alert("Entre 1 & 12");
+  } else {
+    jours = mois % 2 == 0 ? 31 : mois == 5 ? 28 : 30;
   }
-} while ((n < 0) | (n > 100));
-alert("merci pour le nombre " + n);
+} while (mois > 6);
+
+alert(jours);
