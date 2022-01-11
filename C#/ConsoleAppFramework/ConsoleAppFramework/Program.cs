@@ -10,21 +10,14 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            float capIni, cap, taux;            
-
-            Console.WriteLine("donnez le capital à placer et le taux : ");
-            capIni = float.Parse(Console.ReadLine());
-            taux = float.Parse(Console.ReadLine());
-
-            cap = capIni;
+            string s = "Bonjour je m'appelle Alexis.";            
             int i = 0;
 
-            do
+            for (i = 0; i < s.Length; ++i)
             {
-                cap = cap * (1 + taux / 100);                
-                i ++;
-                Console.WriteLine("capital, à l'année " + i + " : " + cap);
-            }while(cap <= 2 * capIni);
+                Console.WriteLine("" + s[i]);
+            }
+            Console.WriteLine(i - 1);   
         }
     }
 }

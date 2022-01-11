@@ -1,13 +1,7 @@
-let capIni, cap, taux;
-
-capIni = prompt("donnez le capital à placer : ");
-taux = prompt("donnez le taux : ");
-
-cap = capIni;
+let s = "Bonjour je m'appelle Alexis.";
 let i = 0;
 
-do {
-  cap = cap * (1 + taux / 100);
-  i++;
-  console.log(`capital, à l'année ${i} : ${cap}`);
-} while (cap <= 2 * capIni);
+for (i = 0; i < s.length; ++i) {
+  console.log("" + s[i]);
+}
+alert(i - 1);
