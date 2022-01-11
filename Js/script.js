@@ -1,24 +1,19 @@
 let n,
-  sommeNeg = 0,
-  sommePos = 0,
-  iNeg = 0,
-  iPos = 0,
-  moyNeg,
-  moyPos;
+  minNeg = 0,
+  maxPos = 0;
 
 do {
   n = parseInt(prompt("Rentrer un nombre / ou rentrer 0 pour arrêter"));
-  if (n < 0) {
-    iNeg++;
-    sommeNeg += n;
-  } else if (n > 0) {
-    iPos++;
-    sommePos += n;
+  if (n > 0) {
+    if (n > maxPos) {
+      maxPos = n;
+    }
+  } else if (n < 0) {
+    if (n < minNeg) {
+      minNeg = n;
+    }
   }
 } while (n != 0);
 
-moyNeg = sommeNeg / iNeg;
-moyPos = sommePos / iPos;
-
-console.log(moyNeg);
-console.log(moyPos);
+console.log(minNeg);
+console.log(maxPos);

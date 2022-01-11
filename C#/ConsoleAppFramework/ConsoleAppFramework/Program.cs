@@ -10,29 +10,30 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int n, sommeNeg = 0, sommePos = 0, iNeg = 0, iPos = 0;
-            float moyNeg, moyPos;
-
+            int n, minNeg = 0, maxPos = 0;           
 
             do
             {
                 Console.WriteLine("Rentrer un nombre / ou rentrer 0 pour arrêter");
                 n = int.Parse(Console.ReadLine());
-                if (n < 0)
+                if (n > 0)
                 {
-                    iNeg++;
-                    sommeNeg += n;
+                    if (n > maxPos)
+                    {
+                        maxPos = n;
+                    }
                 }
-                else if (n > 0)
+                else if (n < 0)
                 {
-                    iPos++;
-                    sommePos += n;
+                    if (n < minNeg)
+                    {
+                        minNeg = n;
+                    }
                 }
             }while (n != 0);
-            moyNeg = sommeNeg/iNeg;
-            moyPos = sommePos/ iPos;
-            Console.WriteLine(moyNeg);
-            Console.WriteLine(moyPos);  
+            
+            Console.WriteLine(minNeg);
+            Console.WriteLine(maxPos);  
         }
     }
 }
