@@ -12,39 +12,47 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int[,] myTab = InitTab();
+            int maxLength = 4;
+            float[,] myTab = InitTab();
 
-            WriteTabLigne(myTab);
+            WriteTabLigne(myTab, maxLength);
 
             Console.WriteLine("\n");
 
-            WriteTabColonne(myTab);
+            WriteTabColonne(myTab, maxLength);
 
             Console.ReadLine();
         }
 
-        static int[,] InitTab()
+        static float[,] InitTab()
         {
-            int[,] tab = new int[2, 3];
+            // Initialisation nombres élèves et notes
+            Console.WriteLine("Sélectionner le nombre d'élève :");
+            int nbEleve = int.Parse(Console.ReadLine());
+            Console.WriteLine("Sélectionner le nombre de notes :");
+            int nbNotes = int.Parse(Console.ReadLine());
+
+            //Création du tableau
+            float[,] tab = new float[nbEleve, nbNotes];
             int i, j, val = 1;
             for (i = 0; i < tab.GetLength(0); i++)
             {
-                Console.WriteLine("Sélectionner les notes de l'élève {0} :", i+1);
+                Console.WriteLine("Sélectionner les notes de l'élève {0} :", i + 1);
                 for (j = 0; j < tab.GetLength(1); j++)
                 {
-                    tab[i, j] = int.Parse(Console.ReadLine());
+                    tab[i, j] = float.Parse(Console.ReadLine());
                 }
             }
             return tab;
         }
 
-        static void WriteTabLigne (int [,] tab)
+        static void WriteTabLigne(float[,] tab, int maxLength)
         {
-            int maxLength = 20;
             int i, j;
             for (i = 0; i < tab.GetLength(0); i++)
             {
                 // Création des lignes de séparation
+                Console.Write("        ");
                 for (j = 0; j < tab.GetLength(1); j++)
                 {
                     Console.Write("+--");
@@ -54,16 +62,18 @@ namespace ConsoleAppFramework
                     }
                 }
                 Console.WriteLine("+");
+                Console.Write("Elève {0} ", i);
 
                 // Création des données
                 for (j = 0; j < tab.GetLength(1); j++)
                 {
-                    Console.Write("| {0," + maxLength + "} ", tab[i, j]);                    
+                    Console.Write("| {0," + maxLength + "} ", tab[i, j]);
                 }
                 Console.WriteLine("|");
             }
 
             // Création de la ligne de fin
+            Console.Write("        ");
             for (j = 0; j < tab.GetLength(1); j++)
             {
                 Console.Write("+--");
@@ -75,9 +85,8 @@ namespace ConsoleAppFramework
             Console.WriteLine("+");
         }
 
-        static void WriteTabColonne(int[,] tab)
+        static void WriteTabColonne(float[,] tab, int maxLength)
         {
-            int maxLength = 20;
             int i, j;
             for (i = 0; i < tab.GetLength(1); i++)
             {
