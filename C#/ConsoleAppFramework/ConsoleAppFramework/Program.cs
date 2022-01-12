@@ -12,43 +12,106 @@ namespace ConsoleAppFramework
     {
         static void Main(string[] args)
         {
-            int [] myTab = InitTab();
-            int [] myTabTri = TriCroissant(myTab);
-            Console.WriteLine("Tableau trié ----------------------");
-            for (int i = 0; i < myTabTri.Length; i++)
-            {
-                Console.WriteLine(myTabTri[i]);
-            }
+            int[,] myTab = InitTab();
+            int[][] tab2 = { new int []{1,2}, new int []{2,7,9} };
+
+
+            WriteTabLigne(myTab);
+
+            Console.WriteLine("\n");
+
+            WriteTabColonne(myTab);
+
             Console.ReadLine();
         }
 
-        static int[] TriCroissant(int[] tab)
+        static int[,] InitTab()
         {
-            int temp;
-            for (int i = 0; i < tab.Length - 1; i++)
+            int[,] tab = new int[2, 3];
+            int i, j, val = 1;
+            for (i = 0; i < tab.GetLength(0); i++)
             {
-                for (int j = i + 1; j < tab.Length; j++)
+                Console.WriteLine("Sélectionner les notes de l'élève {0} :", i+1);
+                for (j = 0; j < tab.GetLength(1); j++)
                 {
-                    if (tab[i] > tab[j])
-                    {
-                        temp = tab[i];
-                        tab[i] = tab[j];
-                        tab[j] = temp;
-                    }
+                    tab[i, j] = int.Parse(Console.ReadLine());
                 }
             }
             return tab;
         }
 
-        static int[] InitTab()
+        static void WriteTabLigne (int [,] tab)
         {
-            int[] tab = new int[15];
-            Console.WriteLine("Entrez 15 valeurs entières : ");
-            for(int i = 0; i < tab.Length; i++)
+            int maxLength = 20;
+            int i, j;
+            for (i = 0; i < tab.GetLength(0); i++)
             {
-                tab[i] = int.Parse(Console.ReadLine());
+                // Création des lignes de séparation
+                for (j = 0; j < tab.GetLength(1); j++)
+                {
+                    Console.Write("+--");
+                    for (int k = 0; k < maxLength; k++)
+                    {
+                        Console.Write("-");
+                    }
+                }
+                Console.WriteLine("+");
+
+                // Création des données
+                for (j = 0; j < tab.GetLength(1); j++)
+                {
+                    Console.Write("| {0," + maxLength + "} ", tab[i, j]);                    
+                }
+                Console.WriteLine("|");
             }
-            return tab;
+
+            // Création de la ligne de fin
+            for (j = 0; j < tab.GetLength(1); j++)
+            {
+                Console.Write("+--");
+                for (int k = 0; k < maxLength; k++)
+                {
+                    Console.Write("-");
+                }
+            }
+            Console.WriteLine("+");
+        }
+
+        static void WriteTabColonne(int[,] tab)
+        {
+            int maxLength = 20;
+            int i, j;
+            for (i = 0; i < tab.GetLength(1); i++)
+            {
+                // Création des lignes de séparation
+                for (j = 0; j < tab.GetLength(0); j++)
+                {
+                    Console.Write("+--");
+                    for (int k = 0; k < maxLength; k++)
+                    {
+                        Console.Write("-");
+                    }
+                }
+                Console.WriteLine("+");
+
+                // Création des données
+                for (j = 0; j < tab.GetLength(0); j++)
+                {
+                    Console.Write("| {0," + maxLength + "} ", tab[j, i]);
+                }
+                Console.WriteLine("|");
+            }
+
+            // Création de la ligne de fin
+            for (j = 0; j < tab.GetLength(0); j++)
+            {
+                Console.Write("+--");
+                for (int k = 0; k < maxLength; k++)
+                {
+                    Console.Write("-");
+                }
+            }
+            Console.WriteLine("+");
         }
     }
 }
