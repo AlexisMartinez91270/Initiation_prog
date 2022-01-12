@@ -14,17 +14,17 @@ namespace ConsoleAppFramework
         {
             int [] myTab = InitTab();
 
-            int pmax = FindMax(myTab);
+            monTypedObjet maximum = FindMax(myTab);
 
             /* monTypedObjet p= new monTypedObjet();
              p.X = 100;
              testO(p);
              Console.WriteLine(p.X);*/
 
-            string s = string.Format("{0} => {1}", pmax, myTab[pmax]);
+            string s = string.Format("{0} => {1}", maximum.X, maximum.Y);
             Console.WriteLine(s);
             
-            Console.WriteLine("max :{1} à la position :{0} ", pmax, myTab[pmax]);
+            Console.WriteLine("max :{0} à la position :{1} ", maximum.X, maximum.Y);
             Console.ReadLine();
         }
 
@@ -35,7 +35,7 @@ namespace ConsoleAppFramework
             return array1;
         }
 
-        static int FindMax(int[] tab)
+        static monTypedObjet FindMax(int[] tab)
         {
             int i;
             int max = tab[0];
@@ -49,7 +49,10 @@ namespace ConsoleAppFramework
                     maxPos = i;
                 }
             }
-            return maxPos;
+            monTypedObjet maximum = new monTypedObjet();
+            maximum.X = max;
+            maximum.Y = maxPos;
+            return maximum;
         }
         static void testO (monTypedObjet p)
         {
