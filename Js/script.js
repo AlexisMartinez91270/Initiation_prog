@@ -1,19 +1,33 @@
-"use strict";
-
 let Main = function () {
-  let c = prompt("Entrez un caractère : ");
-  let voyelle = ContientVoyelle(c);
-  console.log(voyelle);
+  let myTab = InitTab();
+  let myTabTri = TriCroissant(myTab);
+  console.log("Tableau trié ----------------------");
+  for (let i = 0; i < myTabTri.length; i++) {
+    console.log(myTabTri[i]);
+  }
 };
 
-function ContientVoyelle(c) {
-  let voyelles = ["a", "e", "i", "o", "u", "y"];
-  for (let i = 0; i < voyelles.length; i++) {
-    if (voyelles[i] == c) {
-      return true;
+function TriCroissant(tab) {
+  let temp;
+  for (let i = 0; i < tab.length - 1; i++) {
+    for (let j = i + 1; j < tab.length; j++) {
+      if (tab[i] > tab[j]) {
+        temp = tab[i];
+        tab[i] = tab[j];
+        tab[j] = temp;
+      }
     }
   }
-  return false;
+  return tab;
+}
+
+function InitTab() {
+  let tab = new Array(15);
+  alert("Entrez 15 valeurs entières : ");
+  for (let i = 0; i < tab.length; i++) {
+    tab[i] = parseInt(prompt());
+  }
+  return tab;
 }
 
 window.onload = Main();

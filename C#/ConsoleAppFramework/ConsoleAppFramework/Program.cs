@@ -11,25 +11,44 @@ namespace ConsoleAppFramework
     internal class Program
     {
         static void Main(string[] args)
-        {            
-            Console.WriteLine("Entrez un caractère : ");
-            string c = Console.ReadLine();
-            bool voyelle = ContientVoyelle(c);
-            Console.WriteLine(voyelle);
+        {
+            int [] myTab = InitTab();
+            int [] myTabTri = TriCroissant(myTab);
+            Console.WriteLine("Tableau trié ----------------------");
+            for (int i = 0; i < myTabTri.Length; i++)
+            {
+                Console.WriteLine(myTabTri[i]);
+            }
             Console.ReadLine();
         }
 
-        static bool ContientVoyelle(string c)
+        static int[] TriCroissant(int[] tab)
         {
-            string[] voyelles = { "a", "e", "i", "o", "u", "y" };
-            for (int i = 0; i < voyelles.Length; i++)
+            int temp;
+            for (int i = 0; i < tab.Length - 1; i++)
             {
-                if (voyelles[i] == c)
+                for (int j = i + 1; j < tab.Length; j++)
                 {
-                    return true;
+                    if (tab[i] > tab[j])
+                    {
+                        temp = tab[i];
+                        tab[i] = tab[j];
+                        tab[j] = temp;
+                    }
                 }
             }
-            return false;
+            return tab;
+        }
+
+        static int[] InitTab()
+        {
+            int[] tab = new int[15];
+            Console.WriteLine("Entrez 15 valeurs entières : ");
+            for(int i = 0; i < tab.Length; i++)
+            {
+                tab[i] = int.Parse(Console.ReadLine());
+            }
+            return tab;
         }
     }
 }
