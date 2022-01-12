@@ -62,9 +62,9 @@ namespace ConsoleAppFramework
                     }
                 }
                 Console.WriteLine("+");
-                Console.Write("Elève {0} ", i);
 
                 // Création des données
+                Console.Write("Elève {0} ", i);
                 for (j = 0; j < tab.GetLength(1); j++)
                 {
                     Console.Write("| {0," + maxLength + "} ", tab[i, j]);
@@ -91,6 +91,7 @@ namespace ConsoleAppFramework
             for (i = 0; i < tab.GetLength(1); i++)
             {
                 // Création des lignes de séparation
+                Console.Write("      ");
                 for (j = 0; j < tab.GetLength(0); j++)
                 {
                     Console.Write("+--");
@@ -102,6 +103,7 @@ namespace ConsoleAppFramework
                 Console.WriteLine("+");
 
                 // Création des données
+                Console.Write("Note {0} ", i);
                 for (j = 0; j < tab.GetLength(0); j++)
                 {
                     Console.Write("| {0," + maxLength + "} ", tab[j, i]);
@@ -110,6 +112,7 @@ namespace ConsoleAppFramework
             }
 
             // Création de la ligne de fin
+            Console.Write("      ");
             for (j = 0; j < tab.GetLength(0); j++)
             {
                 Console.Write("+--");
