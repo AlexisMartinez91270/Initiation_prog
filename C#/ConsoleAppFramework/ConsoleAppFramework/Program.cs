@@ -11,61 +11,25 @@ namespace ConsoleAppFramework
     internal class Program
     {
         static void Main(string[] args)
-        {
-            int [] myTab = InitTab();
-
-            monTypedObjet maximum = FindMax(myTab);
-
-            /* monTypedObjet p= new monTypedObjet();
-             p.X = 100;
-             testO(p);
-             Console.WriteLine(p.X);*/
-
-            string s = string.Format("{0} => {1}", maximum.X, maximum.Y);
-            Console.WriteLine(s);
-            
-            Console.WriteLine("max :{0} à la position :{1} ", maximum.X, maximum.Y);
+        {            
+            Console.WriteLine("Entrez un caractère : ");
+            string c = Console.ReadLine();
+            bool voyelle = ContientVoyelle(c);
+            Console.WriteLine(voyelle);
             Console.ReadLine();
         }
 
-        static int[] InitTab()
+        static bool ContientVoyelle(string c)
         {
-            int[] array1 = new int[200];
-            array1[64] = 800;
-            return array1;
-        }
-
-        static monTypedObjet FindMax(int[] tab)
-        {
-            int i;
-            int max = tab[0];
-            int maxPos = 0;
-
-            for (i = 1; i < tab.Length; i++)
+            string[] voyelles = { "a", "e", "i", "o", "u", "y" };
+            for (int i = 0; i < voyelles.Length; i++)
             {
-                if (tab[i] > max)
+                if (voyelles[i] == c)
                 {
-                    max = tab[i];
-                    maxPos = i;
+                    return true;
                 }
             }
-            monTypedObjet maximum = new monTypedObjet();
-            maximum.X = max;
-            maximum.Y = maxPos;
-            return maximum;
+            return false;
         }
-        static void testO (monTypedObjet p)
-        {
-            p.X = 5;
-            p = null;
-        }
-
-
-    }
-
-    class monTypedObjet
-    {
-        public int X;
-        public int Y;
     }
 }

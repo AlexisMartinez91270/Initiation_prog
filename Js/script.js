@@ -1,35 +1,19 @@
 "use strict";
 
 let Main = function () {
-  let myTab = InitTab();
-
-  let maximum = FindMax(myTab);
-
-  let s = `${maximum.X} => ${maximum.Y}`;
-  console.log(s);
-
-  console.log(`max : ${maximum.X} à la position : ${maximum.Y}`);
+  let c = prompt("Entrez un caractère : ");
+  let voyelle = ContientVoyelle(c);
+  console.log(voyelle);
 };
 
-function InitTab() {
-  let array1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  array1[12] = 800;
-  return array1;
-}
-
-function FindMax(tab) {
-  let i;
-  let max = tab[0];
-  let maxPos = 0;
-
-  for (i = 1; i < tab.length; i++) {
-    if (tab[i] > max) {
-      max = tab[i];
-      maxPos = i;
+function ContientVoyelle(c) {
+  let voyelles = ["a", "e", "i", "o", "u", "y"];
+  for (let i = 0; i < voyelles.length; i++) {
+    if (voyelles[i] == c) {
+      return true;
     }
   }
-  let maximum = { X: max, Y: maxPos };
-  return maximum;
+  return false;
 }
 
 window.onload = Main();
