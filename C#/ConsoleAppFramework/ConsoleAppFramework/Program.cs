@@ -11,7 +11,10 @@ namespace ConsoleAppFramework
     internal class Program
     {
         static void Main(string[] args)
+
         {
+            testEstVoyelle();
+
             double prix = 0, articles = 0, tva = 0;
 
             prix = DemandeBiggerThan0("Prix unitaire HT :", true);
@@ -77,5 +80,71 @@ namespace ConsoleAppFramework
 
             return n;
         }
+
+        static bool EstVoyelleBof(char c)
+        {
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u' };
+            for (int i = 0; i < tabVoy.Length; i++)
+            {
+                if (c == tabVoy[i]) { return true; }
+            }
+            char[] tabVoyM = { 'A', 'E', 'I', 'O', 'U' };
+            for (int i = 0; i < tabVoy.Length; i++)
+            {
+                if (c == tabVoyM[i]) { return true; }
+            }
+            return false;
+        }
+        static bool EstVoyelleMouais(char c)
+        {
+            char cl = c.ToString().ToLower()[0];
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u' };
+            for (int i = 0; i < tabVoy.Length; i++)
+            {
+                if (cl == tabVoy[i]) { return true; }
+            
+            }
+            return false;
+        }
+        static bool EstVoyelleMieux(char c)
+        {
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u', 'A','E','I','O','U' };
+            for (int i = 0; i < tabVoy.Length; i++)
+            {
+                if (c == tabVoy[i]) { return true; }
+            }
+            return false;
+            
+        }
+
+        static bool EstVoyelleCool(char c)
+        {
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u'};
+            for (int i = 0; i < tabVoy.Length; i++)
+            {
+                byte charcode = (byte)tabVoy[i];
+                char versionMajus = (char) (charcode - 32);
+                if (c == tabVoy[i] | c== versionMajus) { return true; }
+            }
+            return false;
+
+        }
+
+        static bool EstVoyelle(char c)
+        {
+            string voyelles = "AEIOUY";
+            return voyelles.Contains(c) | voyelles.ToLower().Contains(c) ; 
+
+        }
+
+        static void testEstVoyelle() {
+            char[] testarray = { 'a', 'e', 'i', 't', 'A', 'E' };
+            for (int i = 0; i < testarray.Length; i++) { 
+                Console.WriteLine("{0} : {1},",testarray[i], EstVoyelle(testarray[i]));
+            }
+            Console.ReadLine();
+        }
+
+
     }
 }
