@@ -13,8 +13,14 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            // 8.5
+            int[] tab8_5 = { 1, 3, 25, 67 };
+            MaxMin(tab8_5);        
+            /*
+            // 8.3 Voyelles
             testEstVoyelle();
 
+            // 8.2 TVA
             double prix = 0, articles = 0, tva = 0;
 
             prix = DemandeBiggerThan0("Prix unitaire HT :", true);
@@ -25,12 +31,34 @@ namespace ConsoleAppFramework
 
             Console.WriteLine("prix total HT: " + (prix * articles));
             Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
+            */
 
             Console.ReadLine();
         }
 
+        //8.5
+        static void MaxMin(int [] tab)
+        {
+            int max= tab[0];
+            int min= tab[0];
+
+            for (int i = 1; i < tab.Length; i++)
+            {
+                if (tab[i] > max)
+                {
+                    max = tab[i];
+                }
+                if (tab[i] < min)
+                {
+                    min = tab[i];
+                }
+            }
+            int[] max_min = { max, min };
+            Console.WriteLine("max : {0} --- min : {1}", max_min[0], max_min[1]);
+        }
 
 
+        //8.2 TVA
 
         /// <summary>
         /// /Convertit en double la valeur passée sous forme de chaîne
@@ -81,6 +109,8 @@ namespace ConsoleAppFramework
             return n;
         }
 
+
+        // 8.3 Voyelles
         static bool EstVoyelleBof(char c)
         {
             char[] tabVoy = { 'a', 'e', 'i', 'o', 'u' };
@@ -97,7 +127,8 @@ namespace ConsoleAppFramework
         }
         static bool EstVoyelleMouais(char c)
         {
-            char cl = c.ToString().ToLower()[0];
+            char cl = c.ToString().ToLower()[0]; // MOCHE !!!!!
+
             char[] tabVoy = { 'a', 'e', 'i', 'o', 'u' };
             for (int i = 0; i < tabVoy.Length; i++)
             {
@@ -106,6 +137,8 @@ namespace ConsoleAppFramework
             }
             return false;
         }
+
+
         static bool EstVoyelleMieux(char c)
         {
             char[] tabVoy = { 'a', 'e', 'i', 'o', 'u', 'A','E','I','O','U' };
@@ -144,7 +177,5 @@ namespace ConsoleAppFramework
             }
             Console.ReadLine();
         }
-
-
     }
 }
