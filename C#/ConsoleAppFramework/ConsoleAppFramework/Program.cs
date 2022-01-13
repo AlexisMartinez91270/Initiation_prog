@@ -8,17 +8,35 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppFramework
 {
+    // Test temps 8.3 Voyelles
     enum algoVoyelle { aucun, simple, cool, mieux, mouais, bof }
+
     internal class Program
     {
         static void Main(string[] args)
 
         {
+            // 8.6 Tri
+            int[] myTab = InitTab();
+
+            Console.WriteLine("\n--------------------Croissant--------------------------\n");
+            int[] myTabTriCroissant = TriTab(myTab, true);
+            AfficheTab(myTabTriCroissant, true);
+
+            Console.WriteLine("\n\n--------------------Décroissant--------------------------\n");
+            int[] myTabTriDecroissant = TriTab(myTab, false);
+            AfficheTab(myTabTriDecroissant, false);
+
+            /*            
+            
+            // 8.5 Max Min
+            int[] tab8_5 = { 1, 3, 25, 67 };
+            MaxMin(tab8_5);
+            
+            // Test temps 8.3 Voyelles
             var timer = new Stopwatch();
             foreach (algoVoyelle m in Enum.GetValues(typeof(algoVoyelle)))
             {
-                 
-                /*timer.Start();*/
                 timer.Restart();
                 //B: Run stuff you want timed
                 testEstVoyelle(false, 100_000, m);
@@ -27,15 +45,7 @@ namespace ConsoleAppFramework
 
                 TimeSpan timeTaken = timer.Elapsed;
                 Console.WriteLine("{1} :: Time taken: {0} " , timeTaken.ToString(@"m\:ss\.fff"),m.ToString());
-                
             }
-            /*
-            // 8.5 Max Min
-            int[] tab8_5 = { 1, 3, 25, 67 };
-            MaxMin(tab8_5);        
-            
-            // 8.3 Voyelles
-            
 
             // 8.2 TVA
             double prix = 0, articles = 0, tva = 0;
@@ -50,10 +60,77 @@ namespace ConsoleAppFramework
             Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
             */
 
-           
+
             Console.ReadLine();
         }
         // 8.6 Tri
+
+        static int[] InitTab()
+        {            
+            Console.WriteLine("Choisisez le nombre de valeurs du tableau :");
+            int nbValTab = int.Parse(Console.ReadLine());
+            int[] tab = new int[nbValTab];
+            Console.WriteLine("Entrez {0} valeurs : ", nbValTab);
+            for (int i = 0; i < nbValTab; i++)
+            {
+                tab[i] = int.Parse(Console.ReadLine());
+            }
+            return tab;
+        }
+        static int[] TriTab(int[] tab, bool croissant)
+        {
+            int temp;
+            for (int i = 0; i < tab.Length -1; i++)
+            {
+                Console.WriteLine("\nTableau à l'étape {0}", i);
+                AfficheTabIntermediaire(tab);
+                for (int j = i+1; j < tab.Length; j++)
+                {
+                    if (croissant)
+                    {
+                        if (tab[j] > tab[i])
+                        {
+                            temp = tab[i];
+                            tab[i] = tab[j];
+                            tab[j] = temp;
+                        }
+                    }
+                    else
+                    {
+                        if (tab[j] < tab[i])
+                        {
+                            temp = tab[i];
+                            tab[i] = tab[j];
+                            tab[j] = temp;
+                        }
+                    }
+                    
+                }
+            }
+
+            return tab;
+        }
+
+        static void AfficheTab(int[] tab, bool croissant)
+        {
+            string s = croissant ? "croissant" : "décroissant";
+            Console.WriteLine("\nTableau final tri {0}", s);
+            for (int i = 0;i < tab.Length; i++)
+            {
+                Console.Write("| {0,3} ", tab[i]);
+            }
+            Console.WriteLine("|");
+        }
+
+        static void AfficheTabIntermediaire(int[] tab)
+        {            
+            for (int i = 0; i < tab.Length; i++)
+            {                
+                Console.Write("| {0,3} ", tab[i]);
+            }
+            Console.WriteLine("|");
+        }
+
         //8.5 Max Min
         static void MaxMin(int [] tab)
         {
@@ -73,60 +150,7 @@ namespace ConsoleAppFramework
             }
             int[] max_min = { max, min };
             Console.WriteLine("max : {0} --- min : {1}", max_min[0], max_min[1]);
-        }
-
-
-        //8.2 TVA
-
-        /// <summary>
-        /// /Convertit en double la valeur passée sous forme de chaîne
-        /// </summary>
-        /// <param name="txt">la chaîne à convertire, par ex "1.0" ou "-1e10" </param>
-        /// <param name="strict"></param>
-        /// <returns></returns>
-        static double ConvertitEnDouble(string eu)
-        {
-            double d;
-            try
-            {
-                d = Convert.ToDouble(eu);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Vous n'avez pas saisie un nombre");
-                return -1;
-            }
-
-            return d;
-        }
-
-        static double DemandeBiggerThan0(string txt, bool strict)
-        {
-            double n;
-            double mini = strict ? double.Epsilon : 0;
-            do
-            {
-                Console.WriteLine("{0,-20} {1,90}", txt, "taper 'quit' pour sortir");
-                string eu = Console.ReadLine();
-
-                if (eu.ToLower() == "quit")
-                {
-                    Environment.Exit(0);
-                }
-
-                n = ConvertitEnDouble(eu);
-
-                if (n < mini)
-                {
-                    string ou_egal = "";
-                    if (!strict) ou_egal = " ou égal";
-                    Console.WriteLine("Veuillez saisir un nombre supérieur" + ou_egal + " à zéro");
-                }
-            } while (n < mini);
-
-            return n;
-        }
-
+        }        
 
         // 8.3 Voyelles
         static bool EstVoyelleBof(char c)
@@ -188,6 +212,7 @@ namespace ConsoleAppFramework
 
         }
 
+        // Test temps 8.3 Voyelles
         static void testEstVoyelle(bool afficher, int nb_repete, algoVoyelle mode) {            
             string s = "aeoihdNJHA"; bool temp=false;
             char[] testarray = s.ToCharArray();
@@ -195,10 +220,6 @@ namespace ConsoleAppFramework
             {
                 for (int i = 0; i < testarray.Length; i++)
                 {
-
-                   
-
-
                     switch (mode)
                     {
                         case algoVoyelle.aucun:
@@ -223,8 +244,58 @@ namespace ConsoleAppFramework
                     }
                 }
             }
-            
            
+        }
+
+        //8.2 TVA
+
+        /// <summary>
+        /// /Convertit en double la valeur passée sous forme de chaîne
+        /// </summary>
+        /// <param name="txt">la chaîne à convertire, par ex "1.0" ou "-1e10" </param>
+        /// <param name="strict"></param>
+        /// <returns></returns>
+        static double ConvertitEnDouble(string eu)
+        {
+            double d;
+            try
+            {
+                d = Convert.ToDouble(eu);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Vous n'avez pas saisie un nombre");
+                return -1;
+            }
+
+            return d;
+        }
+
+        static double DemandeBiggerThan0(string txt, bool strict)
+        {
+            double n;
+            double mini = strict ? double.Epsilon : 0;
+            do
+            {
+                Console.WriteLine("{0,-20} {1,90}", txt, "taper 'quit' pour sortir");
+                string eu = Console.ReadLine();
+
+                if (eu.ToLower() == "quit")
+                {
+                    Environment.Exit(0);
+                }
+
+                n = ConvertitEnDouble(eu);
+
+                if (n < mini)
+                {
+                    string ou_egal = "";
+                    if (!strict) ou_egal = " ou égal";
+                    Console.WriteLine("Veuillez saisir un nombre supérieur" + ou_egal + " à zéro");
+                }
+            } while (n < mini);
+
+            return n;
         }
     }
 }
