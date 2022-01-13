@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -7,18 +8,34 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppFramework
 {
-
+    enum algoVoyelle { aucun, simple, cool, mieux, mouais, bof }
     internal class Program
     {
         static void Main(string[] args)
 
         {
-            // 8.5
+            var timer = new Stopwatch();
+            foreach (algoVoyelle m in Enum.GetValues(typeof(algoVoyelle)))
+            {
+                 
+                /*timer.Start();*/
+                timer.Restart();
+                //B: Run stuff you want timed
+                testEstVoyelle(false, 100_000, m);
+                timer.Stop();
+
+
+                TimeSpan timeTaken = timer.Elapsed;
+                Console.WriteLine("{1} :: Time taken: {0} " , timeTaken.ToString(@"m\:ss\.fff"),m.ToString());
+                
+            }
+            /*
+            // 8.5 Max Min
             int[] tab8_5 = { 1, 3, 25, 67 };
             MaxMin(tab8_5);        
-            /*
+            
             // 8.3 Voyelles
-            testEstVoyelle();
+            
 
             // 8.2 TVA
             double prix = 0, articles = 0, tva = 0;
@@ -33,10 +50,11 @@ namespace ConsoleAppFramework
             Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
             */
 
+           
             Console.ReadLine();
         }
-
-        //8.5
+        // 8.6 Tri
+        //8.5 Max Min
         static void MaxMin(int [] tab)
         {
             int max= tab[0];
@@ -113,12 +131,12 @@ namespace ConsoleAppFramework
         // 8.3 Voyelles
         static bool EstVoyelleBof(char c)
         {
-            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u' };
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u', 'y' };
             for (int i = 0; i < tabVoy.Length; i++)
             {
                 if (c == tabVoy[i]) { return true; }
             }
-            char[] tabVoyM = { 'A', 'E', 'I', 'O', 'U' };
+            char[] tabVoyM = { 'A', 'E', 'I', 'O', 'U', 'Y' };
             for (int i = 0; i < tabVoy.Length; i++)
             {
                 if (c == tabVoyM[i]) { return true; }
@@ -129,7 +147,7 @@ namespace ConsoleAppFramework
         {
             char cl = c.ToString().ToLower()[0]; // MOCHE !!!!!
 
-            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u' };
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u', 'y' };
             for (int i = 0; i < tabVoy.Length; i++)
             {
                 if (cl == tabVoy[i]) { return true; }
@@ -141,7 +159,7 @@ namespace ConsoleAppFramework
 
         static bool EstVoyelleMieux(char c)
         {
-            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u', 'A','E','I','O','U' };
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u', 'y', 'A','E','I','O','U', 'Y' };
             for (int i = 0; i < tabVoy.Length; i++)
             {
                 if (c == tabVoy[i]) { return true; }
@@ -152,7 +170,7 @@ namespace ConsoleAppFramework
 
         static bool EstVoyelleCool(char c)
         {
-            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u'};
+            char[] tabVoy = { 'a', 'e', 'i', 'o', 'u', 'y'};
             for (int i = 0; i < tabVoy.Length; i++)
             {
                 byte charcode = (byte)tabVoy[i];
@@ -165,17 +183,48 @@ namespace ConsoleAppFramework
 
         static bool EstVoyelle(char c)
         {
-            string voyelles = "AEIOUY";
-            return voyelles.Contains(c) | voyelles.ToLower().Contains(c) ; 
+            string voyelles = "AEIOUYaeiouy";
+            return voyelles.Contains(c); 
 
         }
 
-        static void testEstVoyelle() {
-            char[] testarray = { 'a', 'e', 'i', 't', 'A', 'E' };
-            for (int i = 0; i < testarray.Length; i++) { 
-                Console.WriteLine("{0} : {1},",testarray[i], EstVoyelle(testarray[i]));
+        static void testEstVoyelle(bool afficher, int nb_repete, algoVoyelle mode) {            
+            string s = "aeoihdNJHA"; bool temp=false;
+            char[] testarray = s.ToCharArray();
+            for (int j = 0; j<nb_repete; j++)
+            {
+                for (int i = 0; i < testarray.Length; i++)
+                {
+
+                   
+
+
+                    switch (mode)
+                    {
+                        case algoVoyelle.aucun:
+                            
+                            break;
+                        case algoVoyelle.mouais:
+                            temp = EstVoyelleMouais(testarray[i]);
+                            break;
+                        case algoVoyelle.mieux: temp = EstVoyelleMieux(testarray[i]); break;
+                        case algoVoyelle.bof: temp = EstVoyelleBof(testarray[i]); break;
+                        case algoVoyelle.cool: temp = EstVoyelleCool(testarray[i]); break;
+                        case algoVoyelle.simple: temp = EstVoyelle(testarray[i]); break;
+                        default:
+                            throw new Exception("Algo non reconnu");
+
+
+                    }
+                    
+                    if (afficher)
+                    {
+                        Console.WriteLine("{0} : {1},", testarray[i], temp);
+                    }
+                }
             }
-            Console.ReadLine();
+            
+           
         }
     }
 }
