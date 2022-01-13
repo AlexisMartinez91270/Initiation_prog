@@ -1,33 +1,18 @@
 let Main = function () {
-  let myTab = InitTab();
-  let myTabTri = TriCroissant(myTab);
-  console.log("Tableau trié ----------------------");
-  for (let i = 0; i < myTabTri.length; i++) {
-    console.log(myTabTri[i]);
-  }
+  let n = 4,
+    p = 5,
+    q = 8;
+  console.log("Calcul 1 ----------------------------------");
+  faitCalculs(n, p + 2);
+  console.log("\nCalcul 2 ----------------------------------");
+  faitCalculs(2 * n, q);
 };
 
-function TriCroissant(tab) {
-  let temp;
-  for (let i = 0; i < tab.length - 1; i++) {
-    for (let j = i + 1; j < tab.length; j++) {
-      if (tab[i] > tab[j]) {
-        temp = tab[i];
-        tab[i] = tab[j];
-        tab[j] = temp;
-      }
-    }
-  }
-  return tab;
-}
-
-function InitTab() {
-  let tab = new Array(15);
-  alert("Entrez 15 valeurs entières : ");
-  for (let i = 0; i < tab.length; i++) {
-    tab[i] = parseInt(prompt());
-  }
-  return tab;
+function faitCalculs(x, y) {
+  x = parseInt(x);
+  y = parseInt(y);
+  console.log(`Somme :  ${x + y}`);
+  console.log(`Produit :  ${x * y}`);
 }
 
 window.onload = Main();

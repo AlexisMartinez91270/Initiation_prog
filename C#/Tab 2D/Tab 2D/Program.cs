@@ -91,7 +91,7 @@ namespace ConsoleAppFramework
             for (i = 0; i < tab.GetLength(1); i++)
             {
                 // Création des lignes de séparation
-                Console.Write("      ");
+                Console.Write("       ");
                 for (j = 0; j < tab.GetLength(0); j++)
                 {
                     Console.Write("+--");
@@ -112,7 +112,7 @@ namespace ConsoleAppFramework
             }
 
             // Création de la ligne de fin
-            Console.Write("      ");
+            Console.Write("       ");
             for (j = 0; j < tab.GetLength(0); j++)
             {
                 Console.Write("+--");

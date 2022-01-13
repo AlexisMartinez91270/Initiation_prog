@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "000b1ad1-995d-4740-8d83-573cb43aa24a": {
+      "ProjectGuid": "000b1ad1-995d-4740-8d83-573cb43aa24a",
+      "DisplayName": "Tab 2D",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
