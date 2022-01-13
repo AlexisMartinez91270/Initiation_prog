@@ -18,7 +18,8 @@ namespace ConsoleAppFramework
         {
             // 8.6 Tri
             int[] myTab = InitTab();
-
+            Console.WriteLine("\n--------------------Tri à bulle--------------------------\n");
+            Console.WriteLine("\n--------------------Croissant--------------------------\n");
             Console.WriteLine("\n--------------------Croissant--------------------------\n");
             int[] myTabTriCroissant = TriTab(myTab, true);
             AfficheTab(myTabTriCroissant, true);
@@ -66,15 +67,15 @@ namespace ConsoleAppFramework
         // 8.6 Tri
 
         static int[] InitTab()
-        {            
-            Console.WriteLine("Choisisez le nombre de valeurs du tableau :");
+        { int[] tab = { 32, 15, 45, 85, 98, 56, 23, 5, 0, -1, 8 };      
+            /*Console.WriteLine("Choisisez le nombre de valeurs du tableau :");
             int nbValTab = int.Parse(Console.ReadLine());
             int[] tab = new int[nbValTab];
             Console.WriteLine("Entrez {0} valeurs : ", nbValTab);
             for (int i = 0; i < nbValTab; i++)
             {
                 tab[i] = int.Parse(Console.ReadLine());
-            }
+            }*/
             return tab;
         }
         static int[] TriTab(int[] tab, bool croissant)
@@ -88,7 +89,7 @@ namespace ConsoleAppFramework
                 {
                     if (croissant)
                     {
-                        if (tab[j] > tab[i])
+                        if (tab[j] < tab[i])
                         {
                             temp = tab[i];
                             tab[i] = tab[j];
@@ -97,7 +98,7 @@ namespace ConsoleAppFramework
                     }
                     else
                     {
-                        if (tab[j] < tab[i])
+                        if (tab[j] > tab[i])
                         {
                             temp = tab[i];
                             tab[i] = tab[j];
