@@ -16,6 +16,17 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
+            Point myPoint = new Point();
+            FixeAbs(3,ref myPoint);
+            FixeOrd(4,ref myPoint);
+            Console.WriteLine(ValeursAbs(myPoint));
+            Console.WriteLine(ValeursOrd(myPoint));
+            Point myPointDeplacer = DeplacePoint(myPoint, 4, -8);
+            AffichePoint(myPointDeplacer);
+
+
+            /*
             //9.1 Point(init, deplace, premQuad)
             Point myPoint = InitPoint(2, 7);
             AffichePoint(myPoint);
@@ -24,8 +35,7 @@ namespace ConsoleAppFramework
             Point myPointDeplacer = DeplacePoint(myPoint, 4, -8);
             AffichePoint(myPointDeplacer);
             Console.WriteLine(PremQuad(myPointDeplacer));
-
-            /*
+            
             // 8.6 Tri
             int[] myTab = InitTab();
             Console.WriteLine("\n--------------------Tri à bulle--------------------------\n");
@@ -70,6 +80,26 @@ namespace ConsoleAppFramework
 
 
             Console.ReadLine();
+        }
+
+        //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
+        static void FixeAbs(int x, ref Point p)
+        {
+            p.abs = x;
+        }
+        static void FixeOrd(int y, ref Point p)
+        {
+            p.ord = y;
+        }
+
+        static int ValeursAbs(Point p)
+        {
+            return p.abs;
+        }
+
+        static int ValeursOrd(Point p)
+        {
+            return p.ord;
         }
 
         //9.1 Point(init, deplace, premQuad)
