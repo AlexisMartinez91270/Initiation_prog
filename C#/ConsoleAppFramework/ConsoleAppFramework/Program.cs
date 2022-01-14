@@ -16,7 +16,13 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
-            // 9.1 Point
+            //9.1 Point
+            Point myPoint = InitPoint(2, 7);
+            AffichePoint(myPoint);
+            Console.WriteLine(PremQuad(myPoint));
+            Point myPointDeplacer = DeplacePoint(myPoint, 4, -8);
+            AffichePoint(myPointDeplacer);
+            Console.WriteLine(PremQuad(myPointDeplacer));
 
             /*
             // 8.6 Tri
@@ -64,10 +70,36 @@ namespace ConsoleAppFramework
 
             Console.ReadLine();
         }
-        
-        // 9.1 Point
 
+        //9.1 Point
+        static Point InitPoint (int x, int y)
+        {
+            Point p = new Point();
+            p.abs = x;
+            p.ord = y;
+            return p;
+        }
 
+        static Point DeplacePoint (Point p, int dx, int dy)
+        {
+            p.abs += dx;
+            p.ord += dy;
+            return p;
+        }
+
+        static bool PremQuad (Point p)
+        {
+            if (p.abs >= 0 & p.ord >= 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        static void AffichePoint (Point p)
+        {
+            Console.WriteLine("Je suis un point de coordonnées : {0}, {1}", p.abs, p.ord) ;
+        }
 
         // 8.6 Tri
         static int[] InitTab()
@@ -302,5 +334,11 @@ namespace ConsoleAppFramework
 
             return n;
         }
+    }
+
+    //9.1 Point
+    class Point
+    {
+       public int abs, ord;
     }
 }
