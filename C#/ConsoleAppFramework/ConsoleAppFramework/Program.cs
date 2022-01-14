@@ -22,9 +22,6 @@ namespace ConsoleAppFramework
             FixeOrd(4,ref myPoint);
             Console.WriteLine(ValeursAbs(myPoint));
             Console.WriteLine(ValeursOrd(myPoint));
-            Point myPointDeplacer = DeplacePoint(myPoint, 4, -8);
-            AffichePoint(myPointDeplacer);
-
 
             /*
             //9.1 Point(init, deplace, premQuad)
