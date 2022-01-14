@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Alexis;
 
 namespace ConsoleAppFramework
 {
@@ -13,17 +14,26 @@ namespace ConsoleAppFramework
 
     internal class Program
     {
+        
         static void Main(string[] args)
 
         {
-            //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
-            Point myPoint = new Point();
-            FixeAbs(3,ref myPoint);
-            FixeOrd(4,ref myPoint);
-            Console.WriteLine(ValeursAbs(myPoint));
-            Console.WriteLine(ValeursOrd(myPoint));
+
+            Fibonacci f = new Fibonacci(2, 5);
+            Console.WriteLine("Entrez entier");
+            int nb = int.Parse(Console.ReadLine());
+            Console.WriteLine("V1 : Le {0}ième terme vaut : {1}", nb+1, f.GetNth(nb));
+            Console.WriteLine("V2 : Le {0}ième terme vaut : {1}", nb+1, f.GetNthbis(nb));
 
             /*
+            //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
+            Point myPoint = new Point();
+            myPoint.FixeAbs(3);
+            myPoint.FixeOrd(4);
+            Console.WriteLine(myPoint.ValeursAbs());
+            Console.WriteLine(myPoint.ValeursOrd());
+
+            
             //9.1 Point(init, deplace, premQuad)
             Point myPoint = InitPoint(2, 7);
             AffichePoint(myPoint);
@@ -77,56 +87,6 @@ namespace ConsoleAppFramework
 
 
             Console.ReadLine();
-        }
-
-        //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
-        static void FixeAbs(int x, ref Point p)
-        {
-            p.abs = x;
-        }
-        static void FixeOrd(int y, ref Point p)
-        {
-            p.ord = y;
-        }
-
-        static int ValeursAbs(Point p)
-        {
-            return p.abs;
-        }
-
-        static int ValeursOrd(Point p)
-        {
-            return p.ord;
-        }
-
-        //9.1 Point(init, deplace, premQuad)
-        static Point InitPoint (int x, int y)
-        {
-            Point p = new Point();
-            p.abs = x;
-            p.ord = y;
-            return p;
-        }
-
-        static Point DeplacePoint (Point p, int dx, int dy)
-        {
-            p.abs += dx;
-            p.ord += dy;
-            return p;
-        }
-
-        static bool PremQuad (Point p)
-        {
-            if (p.abs >= 0 & p.ord >= 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        static void AffichePoint (Point p)
-        {
-            Console.WriteLine("Je suis un point de coordonnées : {0}, {1}", p.abs, p.ord) ;
         }
 
         // 8.6 Tri
@@ -367,6 +327,54 @@ namespace ConsoleAppFramework
     //9.1 Point
     class Point
     {
-       public int abs, ord;
+        //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
+        private int abs, ord;
+
+        public void FixeAbs(int x)
+        {
+            abs = x;
+        }
+        public void FixeOrd(int y)
+        {
+            ord = y;
+        }
+
+        public int ValeursAbs()
+        {
+            return abs;
+        }
+
+        public int ValeursOrd()
+        {
+            return ord;
+        }
+
+        //9.1 Point(init, deplace, premQuad)
+        public void InitPoint(int x, int y)
+        {
+            Point p = new Point();
+            p.abs = x;
+            p.ord = y;
+        }
+
+        public void DeplacePoint(Point p, int dx, int dy)
+        {
+            p.abs += dx;
+            p.ord += dy;
+        }
+
+        static bool PremQuad(Point p)
+        {
+            if (p.abs >= 0 & p.ord >= 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        static void AffichePoint(Point p)
+        {
+            Console.WriteLine("Je suis un point de coordonnées : {0}, {1}", p.abs, p.ord);
+        }
     }
 }
