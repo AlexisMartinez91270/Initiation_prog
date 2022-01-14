@@ -20,7 +20,6 @@ namespace ConsoleAppFramework
             int[] myTab = InitTab();
             Console.WriteLine("\n--------------------Tri à bulle--------------------------\n");
             Console.WriteLine("\n--------------------Croissant--------------------------\n");
-            Console.WriteLine("\n--------------------Croissant--------------------------\n");
             int[] myTabTriCroissant = TriTab(myTab, true);
             AfficheTab(myTabTriCroissant, true);
 
