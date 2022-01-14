@@ -16,6 +16,9 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            // 9.1 Point
+
+            /*
             // 8.6 Tri
             int[] myTab = InitTab();
             Console.WriteLine("\n--------------------Tri à bulle--------------------------\n");
@@ -25,9 +28,7 @@ namespace ConsoleAppFramework
 
             Console.WriteLine("\n\n--------------------Décroissant--------------------------\n");
             int[] myTabTriDecroissant = TriTab(myTab, false);
-            AfficheTab(myTabTriDecroissant, false);
-
-            /*            
+            AfficheTab(myTabTriDecroissant, false);                        
             
             // 8.5 Max Min
             int[] tab8_5 = { 1, 3, 25, 67 };
@@ -63,8 +64,12 @@ namespace ConsoleAppFramework
 
             Console.ReadLine();
         }
-        // 8.6 Tri
+        
+        // 9.1 Point
 
+
+
+        // 8.6 Tri
         static int[] InitTab()
         { int[] tab = { 32, 15, 45, 85, 98, 56, 23, 5, 0, -1, 8 };      
             /*Console.WriteLine("Choisisez le nombre de valeurs du tableau :");
