@@ -16,10 +16,11 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
-            //9.1 Point
+            //9.1 Point(init, deplace, premQuad)
             Point myPoint = InitPoint(2, 7);
             AffichePoint(myPoint);
             Console.WriteLine(PremQuad(myPoint));
+
             Point myPointDeplacer = DeplacePoint(myPoint, 4, -8);
             AffichePoint(myPointDeplacer);
             Console.WriteLine(PremQuad(myPointDeplacer));
@@ -71,7 +72,7 @@ namespace ConsoleAppFramework
             Console.ReadLine();
         }
 
-        //9.1 Point
+        //9.1 Point(init, deplace, premQuad)
         static Point InitPoint (int x, int y)
         {
             Point p = new Point();
