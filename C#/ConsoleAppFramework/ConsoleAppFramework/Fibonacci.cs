@@ -18,16 +18,14 @@ namespace Alexis
 
         public int GetNth(int n)
         {
-           if (n == 0)
+           if (n <= 0)
             {
                 return term1;
             }
-           if (n == 1)
+            if (n == 1)
             {
                 return term2;
-            }
-
-             
+            }    
             return GetNth(n - 1) + GetNth(n - 2);
         }
 

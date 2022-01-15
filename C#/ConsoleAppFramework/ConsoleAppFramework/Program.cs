@@ -18,30 +18,43 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            //9.3 Carac
+            Carac c1 = new Carac('e');
+            Console.WriteLine(c1.EstVoyelle());
 
+            Carac c2 = new Carac('j');
+            Console.WriteLine(c2.EstVoyelle());
+
+            Carac c3 = new Carac('A');
+            Console.WriteLine(c3.EstVoyelle());
+
+            Carac c4 = new Carac();
+            Console.WriteLine(c4.EstVoyelle());
+            /*
             Fibonacci f = new Fibonacci(2, 5);
             Console.WriteLine("Entrez entier");
             int nb = int.Parse(Console.ReadLine());
             Console.WriteLine("V1 : Le {0}ième terme vaut : {1}", nb+1, f.GetNth(nb));
             Console.WriteLine("V2 : Le {0}ième terme vaut : {1}", nb+1, f.GetNthbis(nb));
-
-            /*
+            
             //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
             Point myPoint = new Point();
             myPoint.FixeAbs(3);
             myPoint.FixeOrd(4);
             Console.WriteLine(myPoint.ValeursAbs());
             Console.WriteLine(myPoint.ValeursOrd());
-
             
-            //9.1 Point(init, deplace, premQuad)
-            Point myPoint = InitPoint(2, 7);
-            AffichePoint(myPoint);
-            Console.WriteLine(PremQuad(myPoint));
 
-            Point myPointDeplacer = DeplacePoint(myPoint, 4, -8);
-            AffichePoint(myPointDeplacer);
-            Console.WriteLine(PremQuad(myPointDeplacer));
+            //9.1 Point(init, deplace, premQuad)
+            Point myPoint = new Point();
+            myPoint.InitPoint(2, 7);
+            myPoint.AffichePoint();
+            Console.WriteLine(myPoint.PremQuad());
+
+            myPoint.DeplacePoint(4, -8);
+            myPoint.AffichePoint();
+            Console.WriteLine(myPoint.PremQuad());
+
             
             // 8.6 Tri
             int[] myTab = InitTab();
@@ -323,6 +336,27 @@ namespace ConsoleAppFramework
             return n;
         }
     }
+    //9.3 Carac
+    class Carac
+    {
+        private char car;
+
+        public Carac(char c)
+        {
+            car = c;
+        }
+
+        public Carac()
+        {
+            car = ' ';
+        }
+
+        public bool EstVoyelle()
+        {
+            string voyelles = "AEIOUYaeiouy";
+            return voyelles.Contains(car);
+        }
+    }
 
     //9.1 Point
     class Point
@@ -352,29 +386,28 @@ namespace ConsoleAppFramework
         //9.1 Point(init, deplace, premQuad)
         public void InitPoint(int x, int y)
         {
-            Point p = new Point();
-            p.abs = x;
-            p.ord = y;
+            abs = x;
+            ord = y;
         }
 
-        public void DeplacePoint(Point p, int dx, int dy)
+        public void DeplacePoint(int dx, int dy)
         {
-            p.abs += dx;
-            p.ord += dy;
+            abs += dx;
+            ord += dy;
         }
 
-        static bool PremQuad(Point p)
+        public bool PremQuad()
         {
-            if (p.abs >= 0 & p.ord >= 0)
+            if (abs >= 0 & ord >= 0)
             {
                 return true;
             }
             return false;
         }
 
-        static void AffichePoint(Point p)
+        public void AffichePoint()
         {
-            Console.WriteLine("Je suis un point de coordonnées : {0}, {1}", p.abs, p.ord);
+            Console.WriteLine("Je suis un point de coordonnées : {0}, {1}", abs, ord);
         }
     }
 }
