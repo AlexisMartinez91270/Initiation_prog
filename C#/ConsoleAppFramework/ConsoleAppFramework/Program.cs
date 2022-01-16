@@ -18,6 +18,30 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            //9.4 Rectangle
+            Rectangle r1 = new Rectangle();
+            Console.WriteLine(r1.Perimetre());
+            Console.WriteLine(r1.Surface());
+            r1.Agrandit(2f);
+            Console.WriteLine(r1.Perimetre());
+            Console.WriteLine(r1.Surface());
+
+            Rectangle r2 = new Rectangle(2.5f);
+            Console.WriteLine(r2.Perimetre());
+            Console.WriteLine(r2.Surface());
+            r2.Agrandit(3f);
+            Console.WriteLine(r2.Perimetre());
+            Console.WriteLine(r2.Surface());
+
+            Rectangle r3 = new Rectangle(2.5f , 5.7f);
+            Console.WriteLine(r3.Perimetre());
+            Console.WriteLine(r3.Surface());
+            r3.Agrandit(1.5f);
+            Console.WriteLine(r3.Perimetre());
+            Console.WriteLine(r3.Surface());
+
+
+            /*
             //9.3 Carac
             Carac c1 = new Carac('e');
             Console.WriteLine(c1.EstVoyelle());
@@ -30,7 +54,7 @@ namespace ConsoleAppFramework
 
             Carac c4 = new Carac();
             Console.WriteLine(c4.EstVoyelle());
-            /*
+            
             Fibonacci f = new Fibonacci(2, 5);
             Console.WriteLine("Entrez entier");
             int nb = int.Parse(Console.ReadLine());
@@ -336,6 +360,48 @@ namespace ConsoleAppFramework
             return n;
         }
     }
+    // 9.4 Rectangle
+    class Rectangle
+    {
+        private float longueur, largeur;
+
+        public Rectangle()
+        {
+            longueur = 1;
+            largeur = 1;
+        }
+
+        public Rectangle(float cote)
+        {
+             longueur = cote;
+             largeur = cote;
+        }
+
+        public Rectangle(float longu, float larg)
+        {
+            longueur = longu;
+            largeur = larg;
+        }
+
+        public float Perimetre()
+        {
+            float perimetre = (longueur + largeur) * 2;
+            return perimetre;
+        }
+
+        public float Surface()
+        {
+            float surface = longueur * largeur;
+            return surface;
+        }
+
+        public void Agrandit (float agrandi)
+        {
+            largeur *= agrandi;
+            longueur *= agrandi;
+        }
+    }
+
     //9.3 Carac
     class Carac
     {
