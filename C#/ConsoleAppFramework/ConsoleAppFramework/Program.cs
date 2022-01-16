@@ -18,6 +18,19 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            //9.5 Réservoir
+            Reservoir reserve = new Reservoir(20);
+            Console.WriteLine(reserve.Verse(15));
+            reserve.Jauge();
+            Console.WriteLine(reserve.Verse(10));
+            reserve.Jauge();
+            Console.WriteLine(reserve.Puise(15));
+            reserve.Jauge();
+            Console.WriteLine(reserve.Puise(7));
+            reserve.Jauge();
+
+
+            /*
             //9.4 Rectangle
             Rectangle r1 = new Rectangle();
             Console.WriteLine(r1.Perimetre());
@@ -39,9 +52,7 @@ namespace ConsoleAppFramework
             r3.Agrandit(1.5f);
             Console.WriteLine(r3.Perimetre());
             Console.WriteLine(r3.Surface());
-
-
-            /*
+            
             //9.3 Carac
             Carac c1 = new Carac('e');
             Console.WriteLine(c1.EstVoyelle());
@@ -360,6 +371,45 @@ namespace ConsoleAppFramework
             return n;
         }
     }
+    //9.5 Réservoir
+    class Reservoir
+    {
+        float cap = 0, cap_max, cap_init = 0;
+
+        public Reservoir(int max)
+        {
+            cap_max = max;
+        }
+
+        public float Verse(float quantité_verse)
+        {
+            cap_init = cap;
+            cap += quantité_verse;
+            if (cap > cap_max)
+            {
+                cap = cap_max;
+            }
+            return cap - cap_init;
+        }
+
+        public float Puise(float quantité_puise)
+        {
+            cap_init = cap;
+            cap -= quantité_puise;
+            if (cap < 0)
+            {
+                cap = 0;              
+            }
+            return cap_init - cap;
+        }
+
+        public void Jauge()
+        {
+            float jauge = (cap / cap_max) * 100;
+            Console.WriteLine("Le réservoir est rempli à {0}%", jauge);
+        }
+    }
+
     // 9.4 Rectangle
     class Rectangle
     {
