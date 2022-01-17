@@ -150,7 +150,11 @@ namespace ConsoleAppFramework
             Console.WriteLine("prix total HT: " + (prix * articles));
             Console.WriteLine("prix total TTC: " + (prix * articles * (1 + tva * 0.01)));
             */
-
+            Fibonacci f = new Fibonacci(1, 2);
+            f.term1 = 8;
+            int tt = f.GetNth(2);
+            string s = "e";
+            ClassePourSAmuser cpa = new ClassePourSAmuser(0,ref s);
 
             Console.ReadLine();
         }
@@ -498,12 +502,12 @@ namespace ConsoleAppFramework
         //10.3 Point (Somme)
         private int abs, ord;
 
+        
         public Point(int a, int o)
         {
             abs = a;
             ord = o;
         }
-
         public Point Somme(Point p)
         {
             Point pointSomme = new Point(0, 0);
@@ -511,7 +515,7 @@ namespace ConsoleAppFramework
             pointSomme.ord = ord + p.ord;
             return pointSomme;
         }
-
+        
         //10.2 Point (Constructeur copie attributs)        
         public Point(Point p)
         {

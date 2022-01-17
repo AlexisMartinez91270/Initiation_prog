@@ -8,14 +8,25 @@ namespace Alexis
 {
     internal class Fibonacci
     {
-        int term1 = 0;
-        int term2 = 1;
+        internal int term1 = 0;
+        private int term2 = 1;
+
+        public Fibonacci()
+        {
+            term1 = 0;
+            term2 = 1;
+        }
         public Fibonacci(int t1, int t2)
         {
             term1 = t1;
             term2 = t2;
         }
 
+        /// <summary>
+        /// renvoie le (n+1)ième terme de la suie de Fibonacci définie lors de l'appel du constructeur de l'objet
+        /// </summary>
+        /// <param name="n"> 0.. 1.. 2.. n</param>
+        /// <returns></returns>
         public int GetNth(int n)
         {
            if (n <= 0)
@@ -51,6 +62,14 @@ namespace Alexis
                 n_1 = sum;
             }
             return sum;
+        }
+    }
+
+    class T2 : Fibonacci
+    {
+        public T2()
+        {
+            base.
         }
     }
 }
