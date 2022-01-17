@@ -18,14 +18,20 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            //10.2 Point (Constructeur copie attributs)
+            Point myPoint = new Point(2, 4);
+            Point myPoint2 = new Point(myPoint);
+            myPoint.AffichePoint();
+            myPoint2.AffichePoint();
+
+            /*
             //10.1 Point(Agarndit)
             Point myPoint = new Point();
             myPoint.InitPoint(2, 5);
             myPoint.AffichePoint();
             myPoint.Agrandit(myPoint, 2);
             myPoint.AffichePoint();
-
-            /*
+            
             //9.5 Réservoir
             Reservoir reserve = new Reservoir(20);
             Console.WriteLine(reserve.Verse(15));
@@ -483,8 +489,21 @@ namespace ConsoleAppFramework
     //9.1 Point
     class Point
     {
-        //10.1 Point(Agrandi)
+        //10.2 Point (Constructeur copie attributs)
         private int abs, ord;
+
+        public Point(int a, int o)
+        {
+            abs = a;
+            ord = o;
+        }
+        public Point(Point p)
+        {
+            abs = p.abs;
+            ord = p.ord;
+        }
+
+        //10.1 Point(Agrandi)        
 
         public void Agrandit(Point p, int n)
         {
