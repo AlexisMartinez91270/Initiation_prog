@@ -18,6 +18,14 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            //10.1 Point(Agarndit)
+            Point myPoint = new Point();
+            myPoint.InitPoint(2, 5);
+            myPoint.AffichePoint();
+            myPoint.Agrandit(myPoint, 2);
+            myPoint.AffichePoint();
+
+            /*
             //9.5 Réservoir
             Reservoir reserve = new Reservoir(20);
             Console.WriteLine(reserve.Verse(15));
@@ -28,9 +36,7 @@ namespace ConsoleAppFramework
             reserve.Jauge();
             Console.WriteLine(reserve.Puise(7));
             reserve.Jauge();
-
-
-            /*
+            
             //9.4 Rectangle
             Rectangle r1 = new Rectangle();
             Console.WriteLine(r1.Perimetre());
@@ -77,8 +83,7 @@ namespace ConsoleAppFramework
             myPoint.FixeAbs(3);
             myPoint.FixeOrd(4);
             Console.WriteLine(myPoint.ValeursAbs());
-            Console.WriteLine(myPoint.ValeursOrd());
-            
+            Console.WriteLine(myPoint.ValeursOrd());            
 
             //9.1 Point(init, deplace, premQuad)
             Point myPoint = new Point();
@@ -89,6 +94,7 @@ namespace ConsoleAppFramework
             myPoint.DeplacePoint(4, -8);
             myPoint.AffichePoint();
             Console.WriteLine(myPoint.PremQuad());
+            myPoint.Agrandit(
 
             
             // 8.6 Tri
@@ -477,9 +483,16 @@ namespace ConsoleAppFramework
     //9.1 Point
     class Point
     {
-        //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)
+        //10.1 Point(Agrandi)
         private int abs, ord;
 
+        public void Agrandit(Point p, int n)
+        {
+            p.abs *= n;
+            p.ord *= n;
+        }
+
+        //9.2 Point(fixeAbs/Ord, vlaAbs/Ord)        
         public void FixeAbs(int x)
         {
             abs = x;
