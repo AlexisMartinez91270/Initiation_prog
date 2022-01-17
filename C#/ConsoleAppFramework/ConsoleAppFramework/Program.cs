@@ -18,13 +18,19 @@ namespace ConsoleAppFramework
         static void Main(string[] args)
 
         {
+            //10.3 Point (Somme)
+            Point myPoint = new Point(2, 4);
+            Point myPoint2 = new Point(3, 5);
+            Point myPointSomme = myPoint.Somme(myPoint2);
+            myPointSomme.AffichePoint();
+
+            /*
             //10.2 Point (Constructeur copie attributs)
             Point myPoint = new Point(2, 4);
             Point myPoint2 = new Point(myPoint);
             myPoint.AffichePoint();
             myPoint2.AffichePoint();
-
-            /*
+            
             //10.1 Point(Agarndit)
             Point myPoint = new Point();
             myPoint.InitPoint(2, 5);
@@ -489,7 +495,7 @@ namespace ConsoleAppFramework
     //9.1 Point
     class Point
     {
-        //10.2 Point (Constructeur copie attributs)
+        //10.3 Point (Somme)
         private int abs, ord;
 
         public Point(int a, int o)
@@ -497,6 +503,16 @@ namespace ConsoleAppFramework
             abs = a;
             ord = o;
         }
+
+        public Point Somme(Point p)
+        {
+            Point pointSomme = new Point(0, 0);
+            pointSomme.abs = abs + p.abs;
+            pointSomme.ord = ord + p.ord;
+            return pointSomme;
+        }
+
+        //10.2 Point (Constructeur copie attributs)        
         public Point(Point p)
         {
             abs = p.abs;
